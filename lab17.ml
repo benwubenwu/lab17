@@ -375,6 +375,18 @@ class square_center_scale (p: point) (s: float) : shape =
 object(this)
   inherit square p s
   
+
+
+
+    (* Move the square by the values tx and ty. *)
+  method translate ((tx, ty) : point) : unit =
+    let (x,y) = p in
+    p <- (x +. tx, y +. ty) 
+
+  (* Scale with width and height of a rectangle from the lower-
+     left corner. *)
+  method scale (k : float) : unit =
+    s <- s *. k
 end ;;
      
 (* Before we move on, consider: do you need to make any modifications
